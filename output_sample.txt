@@ -1,0 +1,2 @@
+{"ground_truth": "tom is a cat . he chases a mouse .", "prediction": "i chase jerry all day . my name is tom . i am a cat . i chase jerry all day ."}
+{"ground_truth": "jerry is a mouse that runs away from a cat .", "prediction": "my name is jerry. i run away from tom all day . he can never catch me . i am a mouse ."}
