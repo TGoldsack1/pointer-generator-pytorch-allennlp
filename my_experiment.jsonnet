@@ -34,7 +34,7 @@
         },
         "validation_metric": "-loss",
         "num_serialized_models_to_keep": 1,
-        "num_epochs": 10,
+        "num_epochs": 100,
         "grad_norm": 10.0,
         "patience": 50,
         "cuda_device": 0
