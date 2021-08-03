@@ -6,7 +6,7 @@ Author: Tomas Goldsack
 import os, json, re
 from nltk.tokenize import sent_tokenize
 
-longsumm_file = open("./my_longsumm_train.json")
+longsumm_file = open("./longsumm_train_full.json")
 longsumm_dict = json.load(longsumm_file)
 longsumm_file.close()
 
@@ -22,7 +22,7 @@ longsumm_file.close()
 # Get 2 versions of data: 
 # 1 using the abstract/introduction/conclusions (AIC)
 # 1 at section-level (test only)
-AIC_datafile = open("./my_longsumm_train_AIC.jsonl", "w")
+AIC_datafile = open("./longsumm_train_full_AIC.jsonl", "w")
 
 for paper_id, paper_dict in longsumm_dict.items():
   AIC_data = {}
@@ -78,8 +78,11 @@ for paper_id, paper_dict in longsumm_dict.items():
 
       article_lines = article_lines + sent_tokenize(conc)
 
+      AIC_data["article_lines"] = article_lines
+
       # add to output file
       AIC_datafile.write(json.dumps(AIC_data))
+      AIC_datafile.write("\n")
 
 AIC_datafile.close()
   
