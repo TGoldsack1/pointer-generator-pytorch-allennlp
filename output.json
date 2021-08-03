@@ -1,3 +1,0 @@
-If you intend to train a new coverage-augmented model starting from weights of a non-coverage model, you need to specify the path to the weights file.
-Otherwise, say no to the question if you intend to do inference or are continuing to train an already coverage-augmented model further using the --recover flag.
-Do you want to load pretrained weights from a model trained without coverage? [y/n] :
