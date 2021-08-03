@@ -1,12 +1,13 @@
 '''
 Parses longsummm dataset json file to make format input for the given model.
+Reduces input size my using only the Abstract, Introduction and Conclusion.
 Author: Tomas Goldsack
 '''
 
 import os, json, re
 from nltk.tokenize import sent_tokenize
 
-longsumm_file = open("./longsumm_train_full.json")
+longsumm_file = open("./my_longsum_test.json")
 longsumm_dict = json.load(longsumm_file)
 longsumm_file.close()
 
@@ -18,11 +19,8 @@ longsumm_file.close()
 #   "summary_lines": List[str]
 # }
 
-
-# Get 2 versions of data: 
-# 1 using the abstract/introduction/conclusions (AIC)
-# 1 at section-level (test only)
-AIC_datafile = open("./longsumm_train_full_AIC.jsonl", "w")
+# AIC
+AIC_datafile = open("./my_longsum_test_AIC.jsonl", "w")
 
 for paper_id, paper_dict in longsumm_dict.items():
   AIC_data = {}
@@ -47,7 +45,6 @@ for paper_id, paper_dict in longsumm_dict.items():
   # A section (abstract)
   if "abstractText" in input_dict.keys():
     article_lines = article_lines + sent_tokenize(input_dict["abstractText"])
-
 
     # Get IC sections
     if 'sections' in input_dict.keys() and len(input_dict['sections']) > 2:
@@ -85,4 +82,6 @@ for paper_id, paper_dict in longsumm_dict.items():
       AIC_datafile.write("\n")
 
 AIC_datafile.close()
-  
+
+
+
