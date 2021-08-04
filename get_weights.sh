@@ -1,4 +1,6 @@
 #!/bin/bash
+# Author: Tomas Goldsack
+
 fileid="1356aa0FRZO2aIPBcnZ3Ttlh--kfm8hix"
 filename="see_etal_weights_with_coverage.th"
 curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
